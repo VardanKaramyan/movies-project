@@ -24,6 +24,7 @@
     "@electron-toolkit/preload": "^3.0.0",
     "@electron-toolkit/utils": "^3.0.0",
     "@reduxjs/toolkit": "^2.2.3",
+    "imdbod-sdk": "workspace:^",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react-redux": "^9.1.1",
