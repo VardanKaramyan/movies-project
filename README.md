@@ -5,13 +5,10 @@ Welcome to the Movie Search App! This cross-platform application allows users to
 
 ## Features
 - **Integration with Open API Movie Database:** 
-- **Home Screen:** 
-- **Search Functionality:** 
-- **Movie Detail Screen:** 
+- **Search:** 
 - **Cross-Platform Compatibility:**
 - **Cross-Platform Desktop App:**
 - **Reusable SDK:**
-- **State Management Solution:**
 
 ## Getting Started
 To run the application locally:
