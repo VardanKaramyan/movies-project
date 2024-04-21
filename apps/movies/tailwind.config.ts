@@ -1,9 +1,19 @@
 import type { Config } from 'tailwindcss'
 
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/renderer/index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  // darkMode: 'class',
+  darkMode: 'selector',
   theme: {
-    extend: {}
+    container: {
+      center: true
+    },
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem'
+      }
+    }
   },
   plugins: []
 } satisfies Config
