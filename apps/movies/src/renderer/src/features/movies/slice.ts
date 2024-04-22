@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getMovieData, getMovieDetails, searchMovie } from '../../../../../../../packages/tmdb-sdk'
+import { getMovieData, getMovieDetails, searchMovie } from 'tmdb-sdk'
 import { MoviesState } from './types'
 
 const initialState: MoviesState = {

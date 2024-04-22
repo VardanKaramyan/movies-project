@@ -17,7 +17,8 @@
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:linux": "electron-vite build && electron-builder --linux",
     "build:web": "tsc && vite build",
-    "start:web": "vite preview"
+    "start:web": "vite preview",
+    "dev:web": "vite dev"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.0",

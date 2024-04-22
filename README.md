@@ -5,13 +5,21 @@ Welcome to the Movie Search App! This cross-platform application allows users to
 
 ## Features
 - **Integration with TMDB API Movie Database** 
-- **Search** 
-- **Cross-Platform Compatibility**
-- **Cross-Platform Desktop App**
+- **Cross-Platform Desktop And Web App**
+- **Search**
 - **Reusable SDK**
 
-## Getting Started
-To run the application locally:
+## Quick Start & Developement
 1. Clone this repository.
-2. From the root directory Install dependencies using `pnpm --filter movies install`.
+2. Install dependencies using `pnpm --filter movies install`.
 3. Run the development server using `pnpm --filter movies dev`.
+This will start both app and web in dev mode. For web only `pnpm --filter movies dev:web`
+
+
+## Production
+1. Clone this repository.
+2. Install dependencies using `pnpm --filter movies install`.
+3. Build the project with `pnpm --filter movies build`
+3. Start the app and web using `pnpm --filter movies start`
+For web-only, build using `pnpm --filter movies build:web`
+Start with `pnpm --filter movies start:web`
