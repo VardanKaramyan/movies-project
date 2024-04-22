@@ -5,7 +5,7 @@
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.tsx",
     "src/preload/*.d.ts",
-    "packages/tmdb-sdk/**/*.ts" 
+    "packages/tmdb-sdk/**/*.ts"
   ],
   "compilerOptions": {
     "composite": true,
@@ -14,7 +14,8 @@
     "paths": {
       "@renderer/*": [
         "src/renderer/src/*"
-      ]
+      ],
+      "@tmdb-sdk/*": ["packages/tmdb-sdk/*"]
     }
   }
 }
