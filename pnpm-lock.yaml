@@ -26,9 +26,6 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.2.3
         version: 2.2.3(react-redux@9.1.1(@types/react@18.2.79)(react@18.2.0)(redux@5.0.1))(react@18.2.0)
-      imdbod-sdk:
-        specifier: workspace:^
-        version: link:../../packages/IMDbOT-SDK
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
@@ -44,6 +41,9 @@ importers:
       sort-by:
         specifier: ^1.2.0
         version: 1.2.0
+      tmdb-sdk:
+        specifier: workspace:^
+        version: link:../../packages/tmdb-sdk
     devDependencies:
       '@electron-toolkit/eslint-config-prettier':
         specifier: ^2.0.0
@@ -106,7 +106,8 @@ importers:
         specifier: ^5.0.12
         version: 5.2.9(@types/node@18.19.31)
 
-  packages/IMDbOT-SDK: {}
+
+  packages/tmdb-sdk: {}
 
 packages:
 
