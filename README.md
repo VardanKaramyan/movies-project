@@ -13,5 +13,5 @@ Welcome to the Movie Search App! This cross-platform application allows users to
 ## Getting Started
 To run the application locally:
 1. Clone this repository.
-2. From your root directory Install dependencies using `pnpm --filter movies install`.
+2. From the root directory Install dependencies using `pnpm --filter movies install`.
 3. Run the development server using `pnpm --filter movies dev`.
