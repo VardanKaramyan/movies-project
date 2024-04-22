@@ -51,9 +51,9 @@ const MovieDetailsCard: FC<MovieDetailsProps> = ({ movie }) => {
                       {movie.vote_average}
                     </p>
                     <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                    <a className="font-medium text-gray-900 underline hover:no-underline dark:text-white text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
+                    <div className="font-medium text-gray-900 dark:text-white text-l lg:text-2xl xl:text-2xl 2xl:text-2xl">
                       {movie.vote_count} Votes
-                    </a>
+                    </div>
                   </div>
                   <div className="lg:mt-1 xl:mt-6 m:mt-1 text-l lg:text-xl xl:text-2xl 2xl:text-2xl ">
                     <p className="font-semibold text-gray-600 dark:text-gray-400">
