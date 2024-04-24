@@ -1,22 +1,43 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getMovieData, getMovieDetails, searchMovie } from 'tmdb-sdk'
 import { MoviesState } from './types'
+import { setError } from '../errors/slice'
+import { RootState } from '@renderer/store'
+import { removeDuplicates } from '@renderer/utils/helpers'
 
 const initialState: MoviesState = {
   movies: [],
   movieDetails: null,
   loading: false,
   loadingAction: false,
-  error: null
+  error: null,
+  search: '',
+  page: 1
 }
+
+export const fetchMoviesInit = createAsyncThunk(
+  'movies/fetchMoviesInit',
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await getMovieData(1)
+      return res
+    } catch (error) {
+      setError(error)
+      return rejectWithValue(error)
+    }
+  }
+)
 
 export const fetchMovies = createAsyncThunk(
   'movies/fetchMovies',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
+    const page = (getState() as RootState).movies.page
+
     try {
-      const res = await getMovieData()
+      const res = await getMovieData(page)
       return res
     } catch (error) {
+      setError(error)
       return rejectWithValue(error)
     }
   }
@@ -24,11 +45,14 @@ export const fetchMovies = createAsyncThunk(
 
 export const searchMovies = createAsyncThunk(
   'movies/searchMovies',
-  async (query: string, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
+    const search = (getState() as RootState).movies.search
+
     try {
-      const res = await searchMovie(query)
+      const res = await searchMovie(search)
       return res
     } catch (error) {
+      setError(error)
       return rejectWithValue(error)
     }
   }
@@ -41,6 +65,7 @@ export const fetchMovieDetails = createAsyncThunk(
       const res = await getMovieDetails(id)
       return res
     } catch (error) {
+      setError(error)
       return rejectWithValue(error)
     }
   }
@@ -51,10 +76,20 @@ export const moviesSlice = createSlice({
   initialState,
   reducers: {
     setMovies: (state, action) => {
-      state.movies = action.payload.results
+      state.movies = action.payload
+    },
+    setSearch: (state, action) => {
+      state.search = action.payload
+      state.page = 1
+    },
+    setPage: (state, action) => {
+      state.page = action.payload
     },
     clearMovieDetails: (state) => {
       state.movieDetails = null
+    },
+    clearMovieList: (state) => {
+      state.movies = []
     }
   },
   extraReducers: (builder) => {
@@ -65,7 +100,13 @@ export const moviesSlice = createSlice({
       })
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loading = false
+        state.movies = removeDuplicates([...state.movies, ...action.payload.results])
+        state.page++
+      })
+      .addCase(fetchMoviesInit.fulfilled, (state, action) => {
+        state.loading = false
         state.movies = action.payload.results
+        state.page = 2
       })
       .addCase(fetchMovies.rejected, (state, action) => {
         state.loading = false
@@ -95,10 +136,29 @@ export const moviesSlice = createSlice({
         state.loadingAction = false
         state.error = action.payload || 'Error Searching movies'
       })
+  },
+  selectors: {
+    selectMovies: (state: MoviesState) => state.movies,
+    selectMovieDetails: (state: MoviesState) => state.movieDetails,
+    selectLoading: (state: MoviesState) => state.loading,
+    selectLoadingAction: (state: MoviesState) => state.loadingAction,
+    selectPage: (state: MoviesState) => state.page,
+    selectSearch: (state: MoviesState) => state.search,
+    selectError: (state: MoviesState) => state.error
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { setMovies, clearMovieDetails } = moviesSlice.actions
+export const { setMovies, setPage, clearMovieDetails, clearMovieList, setSearch } =
+  moviesSlice.actions
+export const {
+  selectMovies,
+  selectMovieDetails,
+  selectLoading,
+  selectLoadingAction,
+  selectError,
+  selectSearch,
+  selectPage
+} = moviesSlice.selectors
 
 export default moviesSlice.reducer

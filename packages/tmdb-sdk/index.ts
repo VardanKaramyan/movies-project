@@ -6,8 +6,8 @@ export async function searchMovie(query: string): Promise<any> {
 }
 
 // Search movies by query
-export async function getMovieData(): Promise<any> {
-  return fetchData(`discover/movie?include_adult=false&sort_by=popularity.desc&page=1&with_people`);
+export async function getMovieData(page: number): Promise<any> {
+  return fetchData(`discover/movie?include_adult=false&sort_by=popularity.desc&page=${page}&with_people`);
 }
 
 // Get more details by ID

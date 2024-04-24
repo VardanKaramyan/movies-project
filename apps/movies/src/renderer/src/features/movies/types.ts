@@ -78,4 +78,6 @@ export interface MoviesState {
   loading: boolean
   loadingAction: boolean
   error: null | string | unknown
+  search: string
+  page: number
 }

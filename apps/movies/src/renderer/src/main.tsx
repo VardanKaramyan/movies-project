@@ -24,7 +24,7 @@ const router = createHashRouter([
     path: 'details/:id',
     element: (
       <>
-        <Top search={false} />
+        <Top withSearch={false} />
         <Details />
       </>
     ),

@@ -16,7 +16,7 @@ const MovieDetailsCard: FC<MovieDetailsProps> = ({ movie }) => {
             <div className="flex flex-col md:flex-row">
               <div className="flex-none xlg:w-1/3 2xlg:w-1/3 w-full md:w-1/2 lg:w-1/3">
                 <img
-                  className="w-full h-auto rounded-t-lg md:rounded-l-lg aspect-[3/4]"
+                  className="w-full h-auto rounded-t-lg md:rounded-l-lg aspect-[4/6]"
                   src={getPosterPath(movie.poster_path)}
                   alt="Movie poster"
                 />

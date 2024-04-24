@@ -1,32 +1,25 @@
-import { clearError } from '@renderer/features/errors/slice'
-import { useAppSelector } from '@renderer/hooks'
+import ErrorToast from '@renderer/components/error-toast'
+import { clearError, selectErrorMessage } from '@renderer/features/errors/slice'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
-const ToastComponent = (): JSX.Element | false => {
+const Error = (): JSX.Element | false => {
   const [isVisible, setIsVisible] = useState(false)
-  const globalError = useAppSelector((state) => state.error)
+  const globalError = useSelector(selectErrorMessage)
 
   useEffect(() => {
-    setIsVisible(true)
-    const timer = setTimeout(() => {
-      setIsVisible(false)
-    }, 4000)
+    const timer = setTimeout(() => setIsVisible(false), 4000)
 
     return () => {
       clearTimeout(timer)
       clearError()
     }
-  }, [globalError])
-
-  const toastClass = `fixed top-0 left-1/2 transform -translate-x-1/2 p-4 m-4 text-sm rounded-lg shadow-red-lg 'bg-red-100 text-red-900 dark:text-red-600' z-50`
+  }, [])
 
   return (
-    isVisible && (
-      <div className={`${toastClass} transition-opacity duration-500`} role="alert">
-        <span className="font-medium">Error!</span> {globalError.message}
-      </div>
-    )
+    isVisible &&
+    !!globalError && <ErrorToast errorMessage={globalError.message} setIsVisible={setIsVisible} />
   )
 }
 
-export default ToastComponent
+export default Error

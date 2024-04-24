@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm --filter movies build",
+    "build:web": "pnpm --filter movies build:web",
+    "start": "pnpm --filter movies start",
+    "start:web": "pnpm --filter movies start:web",
+    "dev": "pnpm --filter movies dev",
+    "dev:web": "pnpm --filter movies dev:web"
   },
   "keywords": [],
   "author": "",
