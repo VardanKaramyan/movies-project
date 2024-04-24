@@ -1,49 +1,55 @@
-import { fetchMovieDetails } from '@renderer/features/movies/slice'
+import { fetchMovies, selectPage, setPage } from '@renderer/features/movies/slice'
 import { Movie } from '@renderer/features/movies/types'
 import { useAppDispatch } from '@renderer/hooks'
-import { getPosterPath } from '@renderer/utils/helpers'
-import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
+import LoadMoreToast from '@renderer/utils/load-more'
+import { FC, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import GalleryContainer from './gallery-container'
 
 interface Gallery {
   movies: Movie[]
+  loading: boolean
 }
 
 const MovieGrid: FC<Gallery> = ({ movies }) => {
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
+  const [isAtBottom, setIsAtBottom] = useState(false)
 
-  const handleGetDetails = async (id: number): Promise<void> => {
-    dispatch(fetchMovieDetails(id))
-    navigate(`details/${id}`)
-  }
+  const dispatch = useAppDispatch()
+  const page = useSelector(selectPage)
+
+  useEffect(() => {
+    let isFetching = false
+    const handleScroll = (): void => {
+      if (isFetching) return
+
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
+      if (scrollTop + clientHeight >= scrollHeight - 1 && scrollTop > 0) {
+        setIsAtBottom(true)
+        isFetching = true
+        setTimeout(async () => {
+          dispatch(setPage(page + 1))
+          dispatch(fetchMovies())
+
+          isFetching = false
+        }, 2000)
+      } else {
+        setIsAtBottom(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isAtBottom])
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 gap-8 gap-y-7">
-        {movies.map((movie) => {
-          return (
-            <div
-              key={movie.id}
-              className="shadow-lg hover:shadow-fuchsia-800/90 transition duration-300 ease-in-out hover:scale-105 cursor-pointer w-full max-w-sm bg-slate-100 border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
-              onClick={() => handleGetDetails(movie.id)}
-            >
-              <img
-                className={`object-cover rounded-lg aspect-[4/6]`}
-                src={getPosterPath(movie.poster_path)}
-                alt="Gallery image"
-              />
-              <div className="dark:text-white mt-2 p-2">
-                <h3 className="text-lg font-semibold">{movie.title}</h3>
-                <p className="text-sm antialiased font-light leading-relaxed text-inherit dark:text-gray-300">
-                  {movie.release_date}
-                </p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
+    <>
+      <GalleryContainer moviesList={movies} />
+      {isAtBottom && <LoadMoreToast isAtBottom={isAtBottom} />}
+    </>
   )
 }
 
