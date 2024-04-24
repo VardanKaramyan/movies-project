@@ -1,4 +1,4 @@
-let BASE_URL = 'https://api.themoviedb.org/3'; // New API endpoint
+const BASE_URL = 'https://api.themoviedb.org/3'; // New API endpoint
 
 async function fetchData(endpoint: string): Promise<any> {
   try {
