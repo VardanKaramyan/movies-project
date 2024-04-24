@@ -20,7 +20,7 @@ Welcome to the Movie Search App! This cross-platform application allows users to
 
 ## Production
 1. Clone this repository.
-2. Install dependencies using `pnpm install`.
+2. Install dependencies using `pnpm install`
 3. Build the project with `pnpm build`
 3. Start the app and web using `pnpm start`
 - For web-only, build using `pnpm build:web`
