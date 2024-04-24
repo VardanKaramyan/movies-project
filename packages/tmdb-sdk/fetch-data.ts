@@ -1,9 +1,5 @@
 let BASE_URL = 'https://api.themoviedb.org/3'; // New API endpoint
 
-if (typeof process !== 'undefined' && process.env.BASE_URL) {
-  BASE_URL = process.env.BASE_URL;
-}
-
 async function fetchData(endpoint: string): Promise<any> {
   try {
     const response = await fetch(`${BASE_URL}/${endpoint}`, {
