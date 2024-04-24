@@ -14,13 +14,13 @@ export default function ErrorPage(): JSX.Element {
 
   return (
     <div id="error-page" className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">Oops!</h1>
-      <p className="text-lg mb-4">Sorry, an unexpected error has occurred.</p>
-      <p className="italic mb-4">
+      <h1 className="text-4xl font-bold mb-4 dark:text-white">Oops!</h1>
+      <p className="text-lg mb-4 dark:text-gray-300">Sorry, an unexpected error has occurred.</p>
+      <p className="italic mb-4 dark:text-gray-400">
         {error?.status} {error?.statusText || error?.message}
       </p>
-      <p className="italic mb-4">{error?.data}</p>
-      <p className="text-sm">Please check the console for more information.</p>
+      <p className="italic mb-4 dark:text-gray-400">{error?.data}</p>
+      <p className="text-sm dark:text-gray-400">Please check the console for more information.</p>
     </div>
   )
 }
