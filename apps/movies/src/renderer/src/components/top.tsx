@@ -33,9 +33,9 @@ const Top = ({ withSearch = true }: { withSearch?: boolean }): JSX.Element => {
   }, [search])
 
   return (
-    <div className="">
+    <div>
       {withSearch && (
-        <div className="z-50 relative w-1/2 md:w-1/3 m-5">
+        <div className="z-50 absolute top-0 left-0 m-5 lg:w-1/3 xl:w-1/3 xlg:w-1/3 md:w-1/2 sm:w-3/4 w-3/4">
           <LoadingIndicator loadingAction={loadingAction} />
           <input
             type="search"
@@ -52,10 +52,10 @@ const Top = ({ withSearch = true }: { withSearch?: boolean }): JSX.Element => {
       )}
 
       <div>
-        <div className="z-50 absolute top-0 right-0 m-5">
+        <div className="z-50 absolute top-0.5 right-0 m-5">
           <button
             onClick={toggleDarkMode}
-            className="dark:bg-amber-500 dark:hover:bg-amber-300 bg-fuchsia-900 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded flex items-center"
+            className="dark:bg-amber-500 h-[52px] dark:hover:bg-amber-300 bg-fuchsia-900 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded flex items-center"
           >
             {darkMode ? <MoonIcon /> : <SunIcon />}
           </button>

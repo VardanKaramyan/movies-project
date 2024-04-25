@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer base {
+  body {
+    @apply dark:bg-black p-10 pt-28;
+  }
+
+}

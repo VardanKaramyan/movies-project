@@ -10,7 +10,7 @@ interface MovieDetailsProps {
 const MovieDetailsCard: FC<MovieDetailsProps> = ({ movie }) => {
   return (
     <>
-      <div className="container mx-auto mt-6">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1">
           <div className="bg-slate-100 rounded-lg dark:bg-gray-800">
             <div className="flex flex-col md:flex-row">
