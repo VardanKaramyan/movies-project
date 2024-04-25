@@ -6,15 +6,15 @@ interface BackButtonProps {
 
 const BackButton: FC<BackButtonProps> = ({ handleGoBack }) => {
   return (
-    <div className="z-50 absolute top-0 left-0 m-2 mt-0">
+    <div className="z-50 absolute top-0 left-0 m-4 mt-0">
       <button
         onClick={handleGoBack}
         className="text-gray-600 dark:text-gray-400 hover:text-black focus:outline-none dark:hover:text-gray-200"
       >
         <svg
-          className="w-[80px] h-[70px]"
+          className="w-[90px] h-[90px]"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
+          viewBox="2 2 20 20"
           fill="currentColor"
           aria-hidden="true"
         >

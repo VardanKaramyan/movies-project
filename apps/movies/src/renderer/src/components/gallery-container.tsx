@@ -18,7 +18,7 @@ const GalleryContainer: FC<GalleryContainerProps> = ({ moviesList }) => {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-4">
       <div className="grid-container flex justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 gap-8 gap-y-7">
           {moviesList.map((movie) => {
