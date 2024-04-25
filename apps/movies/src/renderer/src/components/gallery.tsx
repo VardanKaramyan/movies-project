@@ -8,7 +8,6 @@ import GalleryContainer from './gallery-container'
 
 interface Gallery {
   movies: Movie[]
-  loading: boolean
 }
 
 const MovieGrid: FC<Gallery> = ({ movies }) => {

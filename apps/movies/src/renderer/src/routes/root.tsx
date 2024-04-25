@@ -3,7 +3,6 @@ import { useAppDispatch } from '../hooks'
 import {
   clearMovieDetails,
   fetchMovies,
-  selectLoading,
   selectMovies,
   selectSearch
 } from '../features/movies/slice'
@@ -16,7 +15,7 @@ import { LoadingSpinner } from '@renderer/components/spinners'
 export default function Root(): JSX.Element {
   const movies = useSelector(selectMovies)
   const search = useSelector(selectSearch)
-  const loading = useSelector(selectLoading)
+
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function Root(): JSX.Element {
     <>
       <ToastComponent />
       {movies.length > 0 ? (
-        <Gallery movies={movies} loading={loading} />
+        <Gallery movies={movies} />
       ) : search ? (
         <NoResultsMessage message="No movies found" />
       ) : (
