@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply dark:bg-black pb-10 pt-24 pl-2 pr-2 md:pl-10 md:pr-10 lg:pr-10 lg:pl-10 xl:pr-10 xl:pl-10 2xl:pr-10 2xl:pl-10;
+    @apply dark:bg-black pb-10 pt-24 pl-6 pr-6 md:pl-10 md:pr-10 lg:pr-10 lg:pl-10 xl:pr-10 xl:pl-10 2xl:pr-10 2xl:pl-10;
   }
 
 }
