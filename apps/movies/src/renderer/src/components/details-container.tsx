@@ -28,13 +28,13 @@ const DetailsContainer: FC<DetailsContainerProps> = ({ movie }) => {
           </div>
         )}
         <div className="flex items-center">
-          <p className="mr-2 font-semibold text-gray-600 dark:text-gray-400 text-lg">
+          <span className="mr-2 font-semibold text-gray-600 dark:text-gray-400 text-lg whitespace-nowrap">
             Vote Average:
-          </p>
+          </span>
           <StarIcon />
-          <p className="font-bold text-gray-900 dark:text-white text-lg">{movie.vote_average}</p>
-          <span className="w-1 h-1 bg-gray-500 rounded-full dark:bg-gray-400 ml-2 mr-2"></span>
-          <div className="font-medium text-gray-900 dark:text-white text-lg">
+          <p className="font-bold text-gray-900 dark:text-white text-lg ">{movie.vote_average}</p>
+          <span className="w-1 h-1 bg-gray-500 rounded-full dark:bg-gray-400 sm:ml-2 sm:mr-2 md:ml-2 md:mr-2 lg:ml-2 lg:mr-2 xl:ml-2 xl:mr-2 2xl:ml-2 2xl:mr-2"></span>
+          <div className="font-medium text-gray-900 dark:text-white text-lg whitespace-nowrap">
             {movie.vote_count} Votes
           </div>
         </div>
