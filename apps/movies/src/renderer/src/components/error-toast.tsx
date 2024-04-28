@@ -26,7 +26,7 @@ const ErrorToast: FC<ErrorToastProps> = ({ errorMessage, setIsVisible }): JSX.El
         </svg>
         <span className="sr-only">Error icon</span>
       </div>
-      <div className="ms-3 text-sm font-normal">{errorMessage}</div>
+      <div className="ms-3 text-md font-normal text-red-600">{errorMessage}</div>
       <button
         onClick={() => {
           dispatch(clearError())

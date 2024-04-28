@@ -1,7 +1,7 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit'
 
 export interface ErrorState {
-  message: { message: string } | null
+  message: string | null
 }
 
 export const errorSlice = createSlice({
