@@ -62,13 +62,11 @@ interface ProductionCompany {
 }
 
 interface ProductionCountry {
-  iso_3166_1: string
   name: string
 }
 
 interface SpokenLanguage {
   english_name: string
-  iso_639_1: string
   name: string
 }
 

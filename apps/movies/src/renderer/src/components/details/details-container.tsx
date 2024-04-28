@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { MovieDetails } from '@renderer/features/movies/types'
-import { GenreList } from './utils'
+
 import StarIcon from '@renderer/assets/icons/star'
+import { GenreList } from '@renderer/utils/helpers'
 
 interface DetailsContainerProps {
   movie: MovieDetails
