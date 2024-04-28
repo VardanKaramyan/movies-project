@@ -8,7 +8,6 @@ import {
   selectMovies,
   selectSearch
 } from '../features/movies/slice'
-import ToastComponent from '@renderer/utils/error'
 import { useSelector } from 'react-redux'
 import NoResultsMessage from '@renderer/components/no-result'
 import Gallery from '@renderer/components/gallery/gallery'
@@ -34,10 +33,5 @@ export default function Root(): JSX.Element {
     return search ? <NoResultsMessage message="No movies found" /> : <LoadingSpinner />
   }
 
-  return (
-    <>
-      <ToastComponent />
-      <Gallery movies={movies} />
-    </>
-  )
+  return <Gallery movies={movies} />
 }
