@@ -1,6 +1,4 @@
-import { fetchMovieDetails } from '@renderer/features/movies/slice'
 import { Movie } from '@renderer/features/movies/types'
-import { useAppDispatch } from '@renderer/hooks'
 import { getPosterPath } from '@renderer/utils/helpers'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -10,10 +8,8 @@ interface GalleryContainerProps {
 
 const GalleryContainer: FC<GalleryContainerProps> = ({ moviesList }) => {
   const navigate = useNavigate()
-  const dispatch = useAppDispatch()
 
   const handleGetDetails = async (id: number): Promise<void> => {
-    dispatch(fetchMovieDetails(id))
     navigate(`details/${id}`)
   }
 
