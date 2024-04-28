@@ -1,10 +1,12 @@
 import { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-interface BackButtonProps {
-  handleGoBack: () => void
-}
+const BackButton: FC = () => {
+  const navigate = useNavigate()
 
-const BackButton: FC<BackButtonProps> = ({ handleGoBack }) => {
+  const handleGoBack = (): void => {
+    navigate('/')
+  }
   return (
     <div className="z-50 absolute top-0 left-0 m-4 mt-0">
       <button

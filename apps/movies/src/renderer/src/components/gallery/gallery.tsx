@@ -1,7 +1,7 @@
 import { fetchMovies, selectPage, setPage } from '@renderer/features/movies/slice'
 import { Movie } from '@renderer/features/movies/types'
 import { useAppDispatch } from '@renderer/hooks'
-import LoadMoreToast from '@renderer/utils/load-more'
+import LoadMoreToast from '@renderer/components/gallery/load-more'
 import { FC, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import GalleryContainer from './gallery-container'

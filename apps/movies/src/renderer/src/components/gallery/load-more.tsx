@@ -1,8 +1,8 @@
-import { LoadMoreSpinner } from '@renderer/components/spinners'
 import { clearError } from '@renderer/features/errors/slice'
 import { selectPage } from '@renderer/features/movies/slice'
 import { FC, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { LoadMoreSpinner } from '../../utils/spinners'
 
 interface LoadMoreToastProps {
   isAtBottom: boolean
@@ -24,7 +24,7 @@ const LoadMoreToast: FC<LoadMoreToastProps> = ({ isAtBottom }) => {
 
   return (
     <div
-      className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 flex items-center w-full max-w-xs text-gray-500 transition-transform duration-1000 ease-in-out ${
+      className={`opacity-95 fixed bottom-0 left-1/2 transform -translate-x-1/2 flex items-center w-full max-w-xs text-gray-500 transition-transform duration-1000 ease-in-out ${
         isVisible ? 'translate-y-0' : 'translate-y-full'
       }`}
       role="alert"
@@ -35,7 +35,7 @@ const LoadMoreToast: FC<LoadMoreToastProps> = ({ isAtBottom }) => {
         role="alert"
       >
         <LoadMoreSpinner />
-        <div className="ms-3 text-sm font-normal animate-pulse">
+        <div className="ms-3 text-sm font-normal animate-pulse ">
           Please Wait. Loading More Movies...
         </div>
 
