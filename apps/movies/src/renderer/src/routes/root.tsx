@@ -9,7 +9,7 @@ import {
   selectSearch
 } from '../features/movies/slice'
 import { useSelector } from 'react-redux'
-import NoResultsMessage from '@renderer/components/no-result'
+import NoResultsMessage from '@renderer/components/errors/no-result'
 import Gallery from '@renderer/components/gallery/gallery'
 import { LoadingSpinner } from '@renderer/utils/spinners'
 

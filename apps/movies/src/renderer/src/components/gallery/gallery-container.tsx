@@ -21,7 +21,7 @@ const GalleryContainer: FC<GalleryContainerProps> = ({ moviesList }) => {
             return (
               <div
                 key={movie.id}
-                className="shadow-lg hover:shadow-fuchsia-900 transition duration-300 ease-in-out hover:scale-105 cursor-pointer w-full max-w-sm bg-slate-100 border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
+                className="shadow-lg sm:hover:shadow-fuchsia-900 transition duration-300 ease-in-out sm:hover:scale-105 cursor-pointer w-full max-w-sm bg-slate-100 border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700"
                 onClick={() => handleGetDetails(movie.id)}
               >
                 <img
