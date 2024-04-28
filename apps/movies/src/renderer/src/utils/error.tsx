@@ -1,4 +1,4 @@
-import ErrorToast from '@renderer/components/error-toast'
+import ErrorToast from '@renderer/components/errors/error-toast'
 import { clearError, selectErrorMessage } from '@renderer/features/errors/slice'
 import { useAppDispatch } from '@renderer/hooks'
 import { useEffect, useState } from 'react'
