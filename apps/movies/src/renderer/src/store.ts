@@ -8,9 +8,5 @@ export const store = configureStore({
     error: errorReducer
   }
 })
-
-export type RootState = {
-  movies: ReturnType<typeof moviesReducer>
-  error: ReturnType<typeof errorReducer>
-}
+export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

@@ -148,7 +148,6 @@ export const moviesSlice = createSlice({
   }
 })
 
-// Action creators are generated for each case reducer function
 export const { setMovies, setPage, clearMovieDetails, clearMovieList, setSearch } =
   moviesSlice.actions
 export const {
