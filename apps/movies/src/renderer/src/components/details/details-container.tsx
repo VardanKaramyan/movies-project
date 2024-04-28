@@ -10,7 +10,7 @@ interface DetailsContainerProps {
 
 const DetailsContainer: FC<DetailsContainerProps> = ({ movie }) => {
   return (
-    <div className="h-250 w-full gap-5 p-6 content-between grid">
+    <div className="h-250 w-full gap-5 p-4 md:p-3 lg:p-6 xl:p-8 2xl:p-8 content-between grid">
       <div>
         <h5 className="mb-4 text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl font-semibold leading-tight text-gray-900 dark:text-gray-200">
           {movie?.title}
@@ -47,9 +47,21 @@ const DetailsContainer: FC<DetailsContainerProps> = ({ movie }) => {
             </span>
           </p>
         </div>
-        <div className="">
-          <span className="ml-2">{GenreList({ genres: movie.genres })}</span>
+        <div className="text-lg">
+          <p className="font-semibold text-gray-600 dark:text-gray-400">
+            Home Page:
+            <a
+              href={movie.homepage}
+              target="_blank"
+              className="ml-2 font-semibold text-black dark:text-white underline"
+              rel="noreferrer"
+            >
+              Visit Homepage
+            </a>
+          </p>
         </div>
+
+        <span className="ml-2">{GenreList({ genres: movie.genres })}</span>
       </div>
     </div>
   )
