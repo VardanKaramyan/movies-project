@@ -3,6 +3,7 @@ import type { Config } from 'tailwindcss'
 export default {
   content: ['./src/renderer/index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'selector',
+  mode: 'jit',
   theme: {
     container: {
       center: true
